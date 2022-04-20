@@ -1,0 +1,70 @@
+<html>
+
+
+
+<script language="javascript" src="/js/Include.js"></script>
+<div w3-include-html="/include/includehead.html"></div> 
+
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="colmenu">
+        <div class="menu">
+          <div w3-include-html="/include/includemenu.html"></div> 
+        </div>
+
+
+
+      </div>
+            <div class="col">
+                <div class="colhoadon">
+                    <div class="container">
+                        <form action="../php/taophong.php" class="form-hoadon" method="post">
+                            <div class="inputspan">
+                                <span class="label label-info">Tên phòng</span>
+                                <input type="text" name="inputTenPhong" id="">
+
+                            </div>
+
+
+
+                            <div class="inputspan">
+                                <span class="label label-info">Giá phòng</span>
+                                <input type="text" name="inputGiaPhong" id="">
+                            </div>
+
+                            <div class="inputspan">
+                                <span class="label label-info">Mô tả</span>
+                                <input type="text" name="inputMoTa" id="">
+                            </div>
+
+                            <div class="inputspan">
+                                Trạng thái phòng:
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name>
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Trống
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="buttonConfirm">                           
+                                <button type="submit" class="btn btn-primary">Cập nhật</button>
+                            </div>
+                        </form>
+                        
+
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <script>
+          includeHTML();
+          </script>
+</body>
+
+</html>
