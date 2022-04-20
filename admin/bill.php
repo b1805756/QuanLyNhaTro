@@ -9,18 +9,18 @@ echo '
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="../css/style.css">
 <title>QUẢN LÝ NHÀ TRỌ </title>
     <script language="javascript">
         var hoten = new Array();
         var gia = new Array();';
-        $sql = "select giaphong from phong";
+        $sql = "select giaphong, tenphong from phong";
         $result = mysqli_query($conn, $sql);
         $i = 0;
         if($result){
             while($row=mysqli_fetch_row($result)){
                 echo '
-                    gia['.$i.'] = '.$row[0].';
+                    gia['.$row[1].'] = '.$row[0].';
                 ';
                 $i++;
             }
@@ -40,7 +40,7 @@ echo '
     </script>
 </head>
 
-<script language="javascript" src="/js/Include.js"></script>
+<script language="javascript" src="../js/Include.js"></script>
 
 
 <body>
@@ -49,7 +49,7 @@ echo '
     <div class="row">
       <div class="colmenu">
         <div class="menu">
-          <div w3-include-html="/include/includemenu.html"></div> 
+          <div w3-include-html="../include/IncludeMenu.html"></div> 
         </div>
             </div>
 
@@ -61,7 +61,8 @@ echo '
                             <div class="inputspan">
                                 <span class="label label-info">Tên phòng</span>
                                 <input type="text" name="inputTenPhong" id="textTenPhong" disabled> <br>
-                                <select name="inputTP" id="inputTenPhong" onchange="hienThiTen();">
+                                
+                                <lable>Phòng</lable><select name="inputTP" id="inputTenPhong" onchange="hienThiTen();">
                                 ';
                                 $sql = "SELECT p.tenphong FROM phong p, qlchothue ql WHERE p.tenphong IN (SELECT tenphong FROM qlchothue) AND p.tenphong = ql.tenphong";
                                 $result = mysqli_query($conn, $sql);
@@ -116,7 +117,7 @@ echo
             let result;
             result = parseInt(tenPhong);
             document.getElementById("inputHoTen").value = hoten[result+1];
-            document.getElementById("inputGiaPhong").value = gia[result+1];
+            document.getElementById("inputGiaPhong").value = gia[result];
             console.log(document.getElementById("lb_inputCSD").value);
         }
             
