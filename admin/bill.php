@@ -77,6 +77,10 @@ echo
                             </div>
     
                             <div class="inputspan">
+                                <span class="label label-info">CCCD</span>
+                                <input type="text" name="inputHoTen" id="inputHoTen">
+                            </div>
+                            <div class="inputspan">
                                 <span class="label label-info">Người đại diện thuê</span>
                                 <input type="text" name="inputHoTen" id="inputHoTen">
                             </div>
