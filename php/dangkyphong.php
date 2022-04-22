@@ -8,15 +8,12 @@ $sodienthoai = $_POST['inputSDT'];
 $gioitinh = $_POST['GioiTinh'];
 $tenphong = $_POST['inputTenPhong'];
 $ngaychothue = $_POST['inputNgayChoThue'];
-$tentaikhoan = $_POST['inputUsername'];
-$matkhau = $_POST['inputPassword'];
 
+$success = true;
 echo $hoten."<br>".$cccd."<br>".$ngaysinh."<br>".$quequan."<br>".$sodienthoai."<br>".$gioitinh."<br>".$tenphong."<br>".$ngaychothue;
 
-$sql = "INSERT INTO qlchothue VALUES ('".$cccd."', '".$hoten."', '".$gioitinh."', '".$ngaysinh."', '".$quequan."', '".$sodienthoai."', ".$tenphong.", '".$ngaychothue."')";
-$sql = "INSERT INTO qlchothue VALUES ('".$cccd."', '".$hoten."', '".$ngaysinh."', '".$quequan."', '".$sodienthoai."', '".$gioitinh."', '".$tenphong."', '".$ngaychothue."', '".$tentaikhoan."', '".$matkhau."')";
+$sql = "INSERT INTO qlchothue VALUES ('".$cccd."', '".$hoten."', '".$ngaysinh."', '".$quequan."', '".$sodienthoai."', '".$gioitinh."', '".$tenphong."', '".$ngaychothue."');";
 $query = mysqli_query($conn, $sql);
-
 if($query === true){
     echo "<script language='javascript'>alert('Thêm thành công, nhấn OK để trở lại!');</script>";
     header( "refresh: 0.1;url=../admin/dangkiphong.html" );
@@ -25,4 +22,15 @@ else {
     echo "<script language='javascript'>alert('Có lỗi xảy ra, thử lại lần sau!');</script>";
     header( "refresh: 0.1;url=../admin/dangkiphong.html" );
 }
+$sql = "INSERT INTO taikhoan VALUES ('".$cccd."', '1')";
+$query = mysqli_query($conn, $sql);
+if($query === true){
+    echo "<script language='javascript'>alert('Thêm thành công, nhấn OK để trở lại!');</script>";
+    header( "refresh: 0.1;url=../admin/dangkiphong.html" );
+}
+else {
+    echo "<script language='javascript'>alert('Có lỗi xảy ra, thử lại lần sau!');</script>";
+    header( "refresh: 0.1;url=../admin/dangkiphong.html" );
+}
+
 ?>

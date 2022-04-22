@@ -23,7 +23,7 @@ if($result){
 $thanhtien = $csd*$giadien + $csn*$gianuoc + $giaphong;
 
 //Cau SQL
-$sql = "INSERT INTO hoadon VALUES (null,'".$hoten."', '".$tenphong."', ".$csd.", ".$csn.", ".$thanhtien.")";
+$sql = "123";
 $query = mysqli_query($conn, $sql);
 if($query===TRUE){
     echo "<script language='javascript'>alert('Thêm thành công, nhấn OK để trở lại!');</script>";
