@@ -63,6 +63,8 @@
 }
 .container {
     margin-left: 20%;
+    font-family:'Times New Roman', Times, serif;
+    color: black;
 }
 .container-fluid{ 
     width: 100%; 
@@ -71,7 +73,8 @@
     padding-left: 0px;
     margin-right: auto;
     margin-left: auto;
-    font-family: 'Courier New', Courier, monospace;
+    font-family:'Times New Roman', Times, serif;
+    color: black;
     background-color: #fff;
 }
 .row{
