@@ -6,7 +6,7 @@ $gianuoc = 0;
 $tenphong = $_GET['inputTP'];
 $hoten = $_GET['inputHoTen'];
 $giaphong = $_GET['inputGiaPhong'];
-$csd = $_GET['inputCSD'];
+$tenphong = $_GET['inputCSD'];
 $csn = $_GET["inputCSN"];
 //Cau SQL
 $sql = "select * from dongia;";
@@ -19,11 +19,13 @@ if($result){
         $gianuoc = $row[1];
     }
 }
+echo  $giadien;
+echo  $gianuoc;
 //Tinh tong tien can thanh toan
 $thanhtien = $csd*$giadien + $csn*$gianuoc + $giaphong;
 
 //Cau SQL
-$sql = "123";
+$sql = "INSERT INTO hoadon (`mahd`, `tenphong`, `csdien`, `csnuoc`, `thanhtien`) VALUES (NULL, '".$tenphong."', '".$csd."', '".$csn."', '".$thanhtien."')";
 $query = mysqli_query($conn, $sql);
 if($query===TRUE){
     echo "<script language='javascript'>alert('Thêm thành công, nhấn OK để trở lại!');</script>";
