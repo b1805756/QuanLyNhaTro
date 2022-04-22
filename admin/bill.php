@@ -95,6 +95,10 @@ echo
                                 <span class="label label-info">Chỉ số nước</span>
                                 <input type="text" name="inputCSN" id="inputCSN">
                             </div>
+                            <div class="inputspan">
+                                <span class="label label-info">Chi phí khác</span>
+                                <input type="text" name="inputCSN" id="inputCSN">
+                            </div>
                             <br>                  
                             <div class="buttonConfirm">
                                 <button type="button" class="btn btn-outline-secondary">Nhập lại</button>
