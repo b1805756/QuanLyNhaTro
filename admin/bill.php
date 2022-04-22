@@ -58,11 +58,9 @@ echo '
                 <div class="colhoadon">    
                     <div class="container">
                         <form action="../php/themhoadon.php" class="form-hoadon" method="GET">
-                            <div class="inputspan">
-                                <span class="label label-info">Tên phòng</span>
-                                <input type="text" name="inputTenPhong" id="textTenPhong" disabled> <br>
-                                
-                                <lable>Phòng</lable><select name="inputTP" id="inputTenPhong" onchange="hienThiTen();">
+                            <div class="inputspan">                              
+                                <lable>Phòng</lable>
+                                <select style="width:300px" name="inputTP" id="inputTenPhong" onchange="hienThiTen();">
                                 ';
                                 $sql = "SELECT p.tenphong FROM phong p, qlchothue ql WHERE p.tenphong IN (SELECT tenphong FROM qlchothue) AND p.tenphong = ql.tenphong";
                                 $result = mysqli_query($conn, $sql);

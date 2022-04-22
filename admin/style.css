@@ -143,6 +143,17 @@ width: 20%;
     
 }
 
+.inputspan > inputSelect {
+    width: 60%;
+    margin-right: 40%;
+    background-color: rgb(229, 235, 240);
+    color: rgb(7, 7, 7);
+    border-radius: 15px;
+    
+    
+    
+}
+
 .buttonConfirm{
     margin-left: 25%;
     margin-top: auto;
