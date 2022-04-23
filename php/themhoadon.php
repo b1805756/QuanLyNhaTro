@@ -6,8 +6,9 @@ $gianuoc = 0;
 $tenphong = $_GET['inputTP'];
 $hoten = $_GET['inputHoTen'];
 $giaphong = $_GET['inputGiaPhong'];
-$tenphong = $_GET['inputCSD'];
-$csn = $_GET["inputCSN"];
+$csd = $_GET['inputCSD'];
+$csn = $_GET['inputCSN'];
+$phikhac = $_GET['inputPhiKhac'];
 //Cau SQL
 $sql = "select * from dongia;";
 
@@ -15,20 +16,19 @@ $result = mysqli_query($conn, $sql);
 //Lay gia dien va gia nuoc
 if($result){
     while ($row=mysqli_fetch_row($result)){
-        $giadien = $row[0];
-        $gianuoc = $row[1];
+        $giadien = (int) $row[0];
+        $gianuoc = (int) $row[1];
     }
 }
-echo  $giadien;
-echo  $gianuoc;
 //Tinh tong tien can thanh toan
-$thanhtien = $csd*$giadien + $csn*$gianuoc + $giaphong;
+$thanhtien = $csd*$giadien + $csn*$gianuoc + (int) $phikhac + $giaphong;
 
 //Cau SQL
-$sql = "INSERT INTO hoadon (`mahd`, `tenphong`, `csdien`, `csnuoc`, `thanhtien`) VALUES (NULL, '".$tenphong."', '".$csd."', '".$csn."', '".$thanhtien."')";
+$sql = "INSERT INTO hoadon VALUES (NULL, '".$tenphong."', '".$csd."', '".$csn."', '".$thanhtien."')";
 $query = mysqli_query($conn, $sql);
 if($query===TRUE){
     echo "<script language='javascript'>alert('Thêm thành công, nhấn OK để trở lại!');</script>";
-    header( "refresh: 0.1;url=../admin/bill.php" );
+    //header( "refresh: 0.1;url=../admin/bill.php" );
+    echo "<script> history.go(-1)</script>";
 }
 ?>

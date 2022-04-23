@@ -101,7 +101,7 @@ echo
                             </div>
                             <div class="inputspan">
                                 <span class="label label-info">Chi phí khác</span>
-                                <input type="text" name="inputCSN" id="inputCSN">
+                                <input type="text" name="inputPhiKhac" id="inputPhiKhac">
                             </div>
                             <br>                  
                             <div class="buttonConfirm">
