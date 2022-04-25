@@ -66,9 +66,12 @@ echo '
                           echo "<td>" . $row[1] . "</td>";
                           echo "<td>" . $row[2] . "</td>";
                           echo "<td>" . $row[3] . "</td>";
-                          echo "<td><input type='button' class='btn btn-outline-secondary' name='Sua' value='Sửa'>
-                          <input type='button' class='btn btn-outline-primary' name='Xoa' value='Xóa'>
-                          </td>";
+                          echo '
+                            <td><form action="../php/xoaphong.php" class="form-hoadon" method="post">
+                            <input type="submit" class="btn btn-outline-secondary" name="Xoa" value="Xóa">
+                            <input type="text" class="btn btn-outline-secondary" name="tenphong" value="'.$row[0].'" style="display: none;">
+                            </form>
+                          </td>';
                           
                           echo "</tr>";
                         }
