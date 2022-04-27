@@ -36,26 +36,26 @@ echo '
             <div class="col">
               <div class="colDSP">
                 <div class="container">
-                  <div class="form-select" style="width: fit-content; padding: 0px 0px 0px 0px;">
-                      <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                          <option selected>Trạng thái phòng</option>
-                          <option value="1">Trống</option>
-                          <option value="2">Tất cả</option>                          
-                        </select>
-                  </div>
                   
-                  <table class="table table hover">
-                      <thead>
-                        <tr>
-                          <th scope="col">Số phòng</th>
-                          <th scope="col">Giá phòng</th>
-                          <th scope="col">Mô tả</th>
-                          <th scope="col">Trạng thái</th>
-                          <th scope="col">Thao tác</th>
-                        </tr>
-                      </thead>
+                  
+                <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Số phòng</th>
+                    <th scope="col">CCCD</th>
+                    <th scope="col">Mô tả</th>
+                    <th scope="col">Người đại diện thuê</th>
+                    <th scope="col">Giá phòng</th>
+                    <th scope="col">Chỉ số điện</th>
+                    <th scope="col">Chỉ số nước</th>
+                    <th scope="col">Chi phí khác</th>
+                  </tr>
+                </thead>
                       <tbody>
                       ';
+                      //TU SUA CHO NAY NHE BRO 
+
+                      
                       if ($result) { //Kiem tra ket qua tra ve khac rong
                         // Hàm mysql_fetch_row() sẽ chỉ fetch dữ liệu một record mỗi lần được gọi
                         // Sử dụng vòng lặp While để lặp qua toàn bộ dữ liệu trên bảng
@@ -67,7 +67,7 @@ echo '
                           echo "<td>" . $row[2] . "</td>";
                           echo "<td>" . $row[3] . "</td>";
                           echo '
-                            <td><form action="../php/xoaphong.php" class="form-hoadon" method="post">
+                            <td> <form action="../php/xoaphong.php" class="form-hoadon" method="post">
                             <input type="submit" class="btn btn-outline-secondary" name="Xoa" value="Xóa">
                             <input type="text" class="btn btn-outline-secondary" name="tenphong" value="'.$row[0].'" style="display: none;">
                             </form>
