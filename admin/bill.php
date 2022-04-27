@@ -13,7 +13,10 @@ echo '
 <title>QUẢN LÝ NHÀ TRỌ </title>
     <script language="javascript">
         var hoten = new Array();
-        var gia = new Array();';
+        var gia = new Array();
+        var cccd = new Array();
+        ';
+        
         $sql = "select giaphong, tenphong from phong";
         $result = mysqli_query($conn, $sql);
         $i = 0;
@@ -26,13 +29,13 @@ echo '
             }
         }
 
-        $sql = "SELECT ql.hoten, p.tenphong FROM phong p, qlchothue ql WHERE p.tenphong IN (SELECT tenphong FROM qlchothue) AND p.tenphong = ql.tenphong";
+        $sql = "SELECT ql.hoten, p.tenphong, ql.cccd FROM phong p, qlchothue ql WHERE p.tenphong IN (SELECT tenphong FROM qlchothue) AND p.tenphong = ql.tenphong";
         $result = mysqli_query($conn, $sql);
-        
         if($result){
             while($row=mysqli_fetch_row($result)){
                 echo '
-                    hoten['.($row[1]+1).'] = "'.$row[0].'";
+                    hoten['.$row[1].'] = "'.$row[0].'";
+                    cccd['.$row[1].'] = "'.$row[2].'";
                 ';
             }
         }
@@ -78,16 +81,16 @@ echo
     
                             <div class="inputspan">
                                 <span class="label label-info">CCCD</span>
-                                <input type="text" name="inputHoTen" id="inputHoTen">
+                                <input type="text" name="inputCCCD" id="inputCCCD" readonly>
                             </div>
                             <div class="inputspan">
                                 <span class="label label-info">Người đại diện thuê</span>
-                                <input type="text" name="inputHoTen" id="inputHoTen">
+                                <input type="text" name="inputHoTen" id="inputHoTen" readonly>
                             </div>
     
                             <div class="inputspan">
                                 <span class="label label-info">Giá phòng</span>
-                                <input type="text" name="inputGiaPhong" id="inputGiaPhong">
+                                <input type="text" name="inputGiaPhong" id="inputGiaPhong" readonly>
                             </div>
     
                             <div class="inputspan">
@@ -153,29 +156,23 @@ echo
                     </table>
 
                     </div>             
-
                 </div>
             </div>
         </div>
         <script language="javascript">
-        
         function hienThiTen(){
-            let tenPhong = document.getElementById("inputTenPhong").value;
-            document.getElementById("textTenPhong").value = document.getElementById("inputTenPhong").value;
-            let result;
-            result = parseInt(tenPhong);
-            document.getElementById("inputHoTen").value = hoten[result+1];
+            let tenPhong = document.getElementById("inputTenPhong");
+            let result = tenPhong.options[tenPhong.selectedIndex].value;
+            document.getElementById("inputCCCD").value = cccd[result];
+            document.getElementById("inputHoTen").value = hoten[result];
             document.getElementById("inputGiaPhong").value = gia[result];
+
             console.log(document.getElementById("lb_inputCSD").value);
         }
-            
-
         </script>
-
-
         <script>
-    includeHTML();
-    </script>
+        includeHTML();
+        </script>
 </body>
 </html>'
 ?>
