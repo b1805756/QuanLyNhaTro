@@ -20,19 +20,13 @@ echo '
 
 
 <body>
-
   <div class="container-fluid">
     <div class="row">
       <div class="colmenu">
         <div class="menu">
           <div w3-include-html="../include/IncludeMenu.html"></div> 
         </div>
-
-
-
       </div>
-
-
             <div class="col">
               <div class="colDSP">
                 <div class="container">
@@ -67,11 +61,16 @@ echo '
                           echo "<td>" . $row[2] . "</td>";
                           echo "<td>" . $row[3] . "</td>";
                           echo '
-                            <td><form action="../php/xoaphong.php" class="form-hoadon" method="post">
-                            <input type="submit" class="btn btn-outline-secondary" name="Xoa" value="Xóa">
-                            <input type="text" class="btn btn-outline-secondary" name="tenphong" value="'.$row[0].'" style="display: none;">
-                            </form>
-                          </td>';
+                            <td>
+                              <form action="../php/xoaphong.php" class="form-hoadon" method="post">
+                                <input type="submit" class="btn btn-outline-secondary" name="Xoa" value="Xóa">
+                                <input type="text" class="btn btn-outline-secondary" name="tenphong" value="'.$row[0].'" style="display: none;">
+                              </form>
+                              <form action="../php/traphong.php" class="form-hoadon" method="post">
+                                <input type="submit" class="btn btn-outline-secondary" name="TraPhong" value="Trả Phòng">
+                                <input type="text" class="btn btn-outline-secondary" name="tenphong" value="'.$row[0].'" style="display: none;">
+                              </form>
+                            </td>';
                           
                           echo "</tr>";
                         }

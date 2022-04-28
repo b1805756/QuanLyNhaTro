@@ -1,3 +1,4 @@
+<?php include '../php/connection.php';?>
 <html>
 <meta charset="utf-8">
 <script language="javascript" src="../js/Include.js"></script>
@@ -69,7 +70,20 @@
                                 <p style="font-size: x-large;"> Thông tin phòng cho thuê </p>
                             <div class="inputspan">
                                 <span class="label label-info">Tên phòng</span>
-                                <select  name="inputTP" id="inputTenPhong" onchange="hienThiTen();"></select>
+                                <select  name="inputTP" id="inputTenPhong">
+                                <?php
+                                $sql = "select tenphong from phong where trangthai=0";
+                                $result = mysqli_query($conn, $sql);
+                                if(!($result==null)){
+                                    while($row=mysqli_fetch_row($result)){
+                                        echo '<option value='.$row[0].'>'.$row[0].'</option>';
+                                    }
+                                } else {
+                                    echo '<option>Hết phòng trống</option>';
+                                }
+                                ?>
+                                
+                                </select>
                             </div>
 
                             <div class="inputspan">

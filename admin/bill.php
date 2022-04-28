@@ -65,7 +65,7 @@ echo '
                                 <lable>Phòng</lable>
                                 <select style="width:300px" name="inputTP" id="inputTenPhong" onchange="hienThiTen();">
                                 ';
-                                $sql = "SELECT p.tenphong FROM phong p, qlchothue ql WHERE p.tenphong IN (SELECT tenphong FROM qlchothue) AND p.tenphong = ql.tenphong";
+                                $sql = "SELECT tenphong from phong where trangthai=1";
                                 $result = mysqli_query($conn, $sql);
                                 if($result){
                                     while($row=mysqli_fetch_row($result)){
@@ -129,6 +129,7 @@ echo
                       </thead>
                       <tbody>
                       <td> test suong suong </td>
+                      <td> test suong suong </td>
                       </tbody>
                     </table>
 
@@ -143,7 +144,6 @@ echo
             document.getElementById("inputCCCD").value = cccd[result];
             document.getElementById("inputHoTen").value = hoten[result];
             document.getElementById("inputGiaPhong").value = gia[result];
-
             console.log(document.getElementById("lb_inputCSD").value);
         }
         </script>
