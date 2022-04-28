@@ -128,30 +128,7 @@ echo
                         </tr>
                       </thead>
                       <tbody>
-                      ';
-                      //TU SUA CHO NAY NHE BRO
-
-                      
-                      if ($result) { //Kiem tra ket qua tra ve khac rong
-                        // Hàm mysql_fetch_row() sẽ chỉ fetch dữ liệu một record mỗi lần được gọi
-                        // Sử dụng vòng lặp While để lặp qua toàn bộ dữ liệu trên bảng
-                        while ($row=mysqli_fetch_row($result)) {
-                        
-                          echo "<tr>";
-                          echo "<td>" . $row[0] . "</td>";
-                          echo "<td>" . $row[1] . "</td>";
-                          echo "<td>" . $row[2] . "</td>";
-                          echo "<td>" . $row[3] . "</td>";
-                          echo '
-                            <td><form action="../php/xoaphong.php" class="form-hoadon" method="post">
-                            
-                            </form>
-                          </td>';
-                          
-                          echo "</tr>";
-                        }
-                      }
-                       echo '
+                      <td> test suong suong </td>
                       </tbody>
                     </table>
 
