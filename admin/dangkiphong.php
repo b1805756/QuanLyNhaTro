@@ -1,4 +1,14 @@
-<?php include '../php/connection.php';?>
+<?php include '../php/connection.php';
+    $sql = "select count(tenphong) from phong where trangthai=0";
+    $result = mysqli_query($conn, $sql);
+    if($result){
+        $row = mysqli_fetch_row($result);
+        if($row[0]==0){
+            echo "<script language='javascript'>alert('Hết phòng trống, không thể đăng ký thêm!');</script>";
+            echo "<script> history.go(-1)</script>";
+        }
+    }
+?>
 <html>
 <meta charset="utf-8">
 <script language="javascript" src="../js/Include.js"></script>
@@ -78,11 +88,8 @@
                                     while($row=mysqli_fetch_row($result)){
                                         echo '<option value='.$row[0].'>'.$row[0].'</option>';
                                     }
-                                } else {
-                                    echo '<option>Hết phòng trống</option>';
                                 }
                                 ?>
-                                
                                 </select>
                             </div>
 
