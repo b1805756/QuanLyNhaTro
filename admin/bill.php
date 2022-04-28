@@ -115,7 +115,7 @@ echo
                         </form>
 
                         <table class="table table-hover">
-                      <thead>
+                        <thead>
                         <tr>
                           <th scope="col">Số phòng</th>
                           <th scope="col">CCCD</th>

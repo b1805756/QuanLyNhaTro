@@ -81,13 +81,10 @@ echo '
                     </table>
               </div>
               </div>                        
-                                
-                
             </div>
             <script>
             includeHTML();
             </script>
-
 </body>
 
 </html>'
