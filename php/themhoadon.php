@@ -10,7 +10,7 @@ $csd = $_GET['inputCSD'];
 $csn = $_GET['inputCSN'];
 $phikhac = $_GET['inputPhiKhac'];
 //Cau SQL
-$sql = "select * from dongia;";
+$sql = "SELECT giadien, gianuoc from dongia where tenphong=".$tenphong;
 
 $result = mysqli_query($conn, $sql);
 //Lay gia dien va gia nuoc
@@ -29,6 +29,6 @@ $query = mysqli_query($conn, $sql);
 if($query===TRUE){
     echo "<script language='javascript'>alert('Thêm thành công, nhấn OK để trở lại!');</script>";
     //header( "refresh: 0.1;url=../admin/bill.php" );
-    echo "<script> history.go(-1)</script>";
+    header( "refresh: 0.1; url=../admin/bill.php" );
 }
 ?>

@@ -23,30 +23,28 @@
                         <form action="../php/taophong.php" class="form-hoadon" method="post">
                             <div class="inputspan">
                                 <span class="label label-info">Tên phòng</span>
-                                <input type="text" name="inputTenPhong" id="">
+                                <input type="text" name="inputTenPhong" id="inputTenPhong" required>
 
-                            </div>
-
-
-
-                            <div class="inputspan">
-                                <span class="label label-info">Giá phòng</span>
-                                <input type="text" name="inputGiaPhong" id="">
                             </div>
 
                             <div class="inputspan">
                                 <span class="label label-info">Mô tả</span>
-                                <input type="text" name="inputMoTa" id="">
+                                <input type="text" name="inputMoTa" id="inputMoTa" >
+                            </div>
+
+                            <div class="inputspan">
+                                <span class="label label-info">Giá phòng</span>
+                                <input type="text" name="inputGiaPhong" id="inputGiaPhong" required>
                             </div>
 
                             <div class="inputspan">
                                 <span class="label label-info">Giá điện</span>
-                                <input type="text" name="inputGiaDien" id="">
+                                <input type="text" name="inputGiaDien" id="inputGiaDien" required>
                             </div>
 
                             <div class="inputspan">
                                 <span class="label label-info">Giá nước</span>
-                                <input type="text" name="inputGiaNuoc" id="">
+                                <input type="text" name="inputGiaNuoc" id="inputGiaNuoc" required>
                             </div>
                             <!-- <div class="inputspan">
                                 Trạng thái phòng:
@@ -73,8 +71,11 @@
         </div>
 
         <script>
-          includeHTML();
-          </script>
+            includeHTML();
+            function checkInput_number(){
+                var format = "/^\d{4,9}$/";
+            }
+        </script>
 </body>
 
 </html>

@@ -74,7 +74,6 @@ echo '
                                 <input type="text" class="btn btn-outline-secondary" name="tenphong" value="'.$row[0].'" style="display: none;">
                               </form>
                             </td>';
-                          
                           echo "</tr>";
                         }
                       }

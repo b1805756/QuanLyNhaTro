@@ -117,21 +117,34 @@ echo
                         <table class="table table-hover">
                         <thead>
                         <tr>
-                          <th scope="col">Số phòng</th>
-                          <th scope="col">CCCD</th>
-                          <th scope="col">Mô tả</th>
-                          <th scope="col">Người đại diện thuê</th>
-                          <th scope="col">Giá phòng</th>
-                          <th scope="col">Chỉ số điện</th>
-                          <th scope="col">Chỉ số nước</th>
-                          <th scope="col">Chi phí khác</th>
+                            <th scope="col">Mã HD</th>
+                            <th scope="col">Số phòng</th>
+                            <th scope="col">CCCD</th>
+                            <th scope="col">Người đại diện thuê</th>
+                            <th scope="col">Giá phòng</th>
+                            <th scope="col">Chỉ số điện</th>
+                            <th scope="col">Chỉ số nước</th>
+                            <th scope="col">Thành tiền</th>
                         </tr>
-                      </thead>
-                      <tbody>
-                      <td> test suong suong </td>
-                      <td> test suong suong </td>
-                      </tbody>
-                    </table>
+                        </thead>';
+                        $sql = "SELECT hd.mahd, hd.tenphong, ql.CCCD, ql.HoTen, p.giaphong, hd.csdien, hd.csnuoc, hd.thanhtien FROM hoadon hd, (SELECT * FROM qlchothue WHERE NgayTraPhong IS NULL) ql, phong p where (hd.tenphong=ql.TenPhong) AND (hd.tenphong=p.tenphong);";
+                        $result = mysqli_query($conn,$sql);
+                        if($result) { //Kiem tra ket qua tra ve khac rong
+                            while($row=mysqli_fetch_row($result)){
+                                echo '
+                                <tbody>
+                                    <td>'.$row[0].'</td>
+                                    <td>'.$row[1].'</td>
+                                    <td>'.$row[2].'</td>
+                                    <td>'.$row[3].'</td>
+                                    <td>'.$row[4].'</td>
+                                    <td>'.$row[5].'</td>
+                                    <td>'.$row[6].'</td>
+                                    <td>'.$row[7].'</td>
+                                </tbody>';
+                            }
+                        }
+echo                '</table>
 
                     </div>             
                 </div>
