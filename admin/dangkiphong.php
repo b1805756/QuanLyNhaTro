@@ -35,13 +35,13 @@
                             <p style="font-size: x-large;"> Thông tin người cho thuê </p>
                             
                             <div class="inputspan">
-                                <span class="label label-info">Họ tên</span>
+                                <span class="label label-info">Họ tên đầy đủ:</span>
                                 <input type="text" name="inputHoTen" id="">
 
                             </div>
 
                             <div class="inputspan">
-                                <span class="label label-info">CMND</span>
+                                <span class="label label-info">CMND/CCCD</span>
                                 <input type="text" name="inputCMND" id="">
                             </div>
 
@@ -58,7 +58,7 @@
                             </div>
 
                             <div class="inputspan">
-                                <span class="label label-info">SDT</span>
+                                <span class="label label-info">Số điện thoại</span>
                                 <input type="number" name="inputSDT" id="">
                             </div>
 

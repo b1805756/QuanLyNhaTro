@@ -6,7 +6,7 @@ $ngaysinh = $_POST['inputNgaySinh'];
 $quequan = $_POST['inputQueQuan'];
 $sodienthoai = $_POST['inputSDT'];
 $gioitinh = $_POST['GioiTinh'];
-$tenphong = $_POST['inputTenPhong'];
+$tenphong = $_POST['inputTP'];
 $ngaychothue = $_POST['inputNgayChoThue'];
 
 $success = true;
@@ -24,7 +24,7 @@ else {
     $query = mysqli_query($conn, $sql);
     
     if($query === true){
-        header( "refresh: 0.1;url=../admin/dangkiphong.html" );
+        header( "refresh: 0.1;url=../admin/dangkiphong.php" );
         $sql = "UPDATE phong SET trangthai = 1 WHERE tenphong='".$tenphong."'";
         $query = mysqli_query($conn, $sql);
         if($query === true){
@@ -36,18 +36,18 @@ else {
     }
     else {
         echo "<script language='javascript'>alert('Lỗi cập nhật trạng thái phòng, thử lại lần sau!');</script>";
-        header( "refresh: 0.1;url=../admin/dangkiphong.html" );
+        header( "refresh: 0.1;url=../admin/dangkiphong.php" );
     }
 
     $sql = "INSERT INTO taikhoan VALUES ('".$cccd."', 1,".$tenphong.")";
     $query = mysqli_query($conn, $sql);
     if($query === true){
         echo "<script language='javascript'>alert('Thêm thành công! Tài khoản là số CCCD, mật khẩu mặc định là '1'');</script>";
-        header( "refresh: 0.1;url=../admin/dangkiphong.html" );
+        header( "refresh: 0.1;url=../admin/dangkiphong.php" );
     }
     else {
         echo "<script language='javascript'>alert('Lỗi thêm tài khoản, thử lại lần sau!');</script>";
-        header("refresh: 0.1;url=../admin/dangkiphong.html" );
+        header("refresh: 0.1;url=../admin/dangkiphong.php" );
     }
 }
 ?>

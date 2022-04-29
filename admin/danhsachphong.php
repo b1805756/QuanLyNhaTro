@@ -59,7 +59,10 @@ echo '
                           echo "<td>" . $row[0] . "</td>";
                           echo "<td>" . $row[1] . "</td>";
                           echo "<td>" . $row[2] . "</td>";
-                          echo "<td>" . $row[3] . "</td>";
+                          echo "<td>";
+                          if($row[3]==1) echo "Đã được thuê";
+                          else echo "Trống";
+                          echo "</td>";
                           echo '
                             <td>
                               <form action="../php/xoaphong.php" class="form-hoadon" method="post">
