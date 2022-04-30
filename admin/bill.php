@@ -41,9 +41,10 @@ echo '
         }
 echo '
     </script>
+    <script language="javascript" src="../js/Include.js"></script>
 </head>
 
-<script language="javascript" src="../js/Include.js"></script>
+
 
 
 <body>
@@ -52,15 +53,14 @@ echo '
     <div class="row">
       <div class="colmenu">
         <div class="menu">
-          <div w3-include-html="../include/IncludeMenu.html"></div> 
+          <div w3-include-html="../include/IncludeMenu.html"></div>  
         </div>
-            </div>
 
-            
+      </div>
             <div class="col">
                 <div class="colhoadon">    
-                    <div class="container">
-                        <form action="../php/themhoadon.php" class="form-hoadon" method="GET">
+                    <div class="container" style="margin_left:100px">
+                        <form action="../php/themhoadon.php" class="form-hoadon" style="margin-left: inherit;" method="GET">
                             <div class="inputspan">                              
                                 <lable>Phòng</lable>
                                 <select style="width:300px" name="inputTP" id="inputTenPhong" onchange="hienThiTen();">
