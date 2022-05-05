@@ -20,7 +20,7 @@ if($row=mysqli_fetch_row($result)){
 }
 else {
     echo "<script language='javascript'>alert('Sai tên đăng nhập hoặc mật khẩu!');</script>";
-    header( "refresh: 0.1; url=../login.html" );
+    header( "refresh: 0.1; url=../index.html" );
 }
 
 ?>

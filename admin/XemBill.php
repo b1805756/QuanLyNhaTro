@@ -1,7 +1,7 @@
 <?php 
 include '../php/connection.php';
 //Cau truy van
-$sql = "SELECT hd.mahd, hd.tenphong, ql.CCCD, ql.HoTen, p.giaphong, hd.csdien, hd.csnuoc, hd.thanhtien FROM hoadon hd, (SELECT * FROM qlchothue WHERE NgayTraPhong IS NULL) ql, phong p where (hd.tenphong=ql.TenPhong) AND (hd.tenphong=p.tenphong);";
+$sql = "SELECT hd.mahd, hd.tenphong, ql.CCCD, ql.HoTen, p.giaphong, hd.csdien, hd.csnuoc, hd.chiphikhac, hd.thanhtien FROM hoadon hd, (SELECT * FROM qlchothue WHERE NgayTraPhong IS NULL) ql, phong p where (hd.tenphong=ql.TenPhong) AND (hd.tenphong=p.tenphong);";
 //Thuc hien truy van
 $result = mysqli_query($conn,$sql);
 
@@ -48,6 +48,7 @@ echo '
                     <th scope="col">Giá phòng</th>
                     <th scope="col">Chỉ số điện</th>
                     <th scope="col">Chỉ số nước</th>
+                    <th scope="col">Chi phí khác</th>
                     <th scope="col">Thành tiền</th>
                   </tr>
                 </thead>
@@ -70,6 +71,7 @@ echo '
                           echo "<td>" . $row[5] . "</td>";
                           echo "<td>" . $row[6] . "</td>";
                           echo "<td>" . $row[7] . "</td>";
+                          echo "<td>" . $row[8] . "</td>";
                         }
                       }
                        echo '

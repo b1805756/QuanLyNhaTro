@@ -124,10 +124,11 @@ echo
                             <th scope="col">Giá phòng</th>
                             <th scope="col">Chỉ số điện</th>
                             <th scope="col">Chỉ số nước</th>
+                            <th scope="col">Chi phí khác</th>
                             <th scope="col">Thành tiền</th>
                         </tr>
                         </thead>';
-                        $sql = "SELECT hd.mahd, hd.tenphong, ql.CCCD, ql.HoTen, p.giaphong, hd.csdien, hd.csnuoc, hd.thanhtien FROM hoadon hd, (SELECT * FROM qlchothue WHERE NgayTraPhong IS NULL) ql, phong p where (hd.tenphong=ql.TenPhong) AND (hd.tenphong=p.tenphong);";
+                        $sql = "SELECT hd.mahd, hd.tenphong, ql.CCCD, ql.HoTen, p.giaphong, hd.csdien, hd.csnuoc, hd.chiphikhac, hd.thanhtien FROM hoadon hd, (SELECT * FROM qlchothue WHERE NgayTraPhong IS NULL) ql, phong p where (hd.tenphong=ql.TenPhong) AND (hd.tenphong=p.tenphong);";
                         $result = mysqli_query($conn,$sql);
                         if($result) { //Kiem tra ket qua tra ve khac rong
                             while($row=mysqli_fetch_row($result)){
@@ -141,6 +142,7 @@ echo
                                     <td>'.$row[5].'</td>
                                     <td>'.$row[6].'</td>
                                     <td>'.$row[7].'</td>
+                                    <td>'.$row[8].'</td>
                                 </tbody>';
                             }
                         }
