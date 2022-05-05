@@ -9,15 +9,15 @@
 </head>
 <body>
     <div id="wrapper">
-        <form method="post" action="login.php" id="form-login">
-            <h1 class="form-heading">Đăng nhập quản lý nhà trọ</h1>
+        <form method="post" action="./php/login.php" id="form-login">
+            <h1 class="form-heading">Nhà trọ TH&DH</h1>
             <div class="form-group">
                 <i class="far fa-user"></i>
-                <input type="text" class="form-input" placeholder="Tên đăng nhập">
+                <input type="text" class="form-input" name="username" placeholder="Tên đăng nhập" required>
             </div>
             <div class="form-group">
                  <i class="fas fa-eye"></i>
-                <input id ="passwd" type="password" class="form-input" placeholder="Mật khẩu" required>
+                <input type="password" class="form-input" name="password" placeholder="Mật khẩu" id ="passwd" required>
                 <div id="eye">
                         <i id="showbtn" class="fas fa-eye" onclick="showPass()">
                             Hiện
