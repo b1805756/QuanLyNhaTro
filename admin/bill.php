@@ -81,26 +81,26 @@ echo
     
                             <div class="inputspan">
                                 <span class="label label-info">CCCD</span>
-                                <input type="text" name="inputCCCD" id="inputCCCD" readonly>
+                                <input type="text" name="inputCCCD" id="inputCCCD" readonly required>
                             </div>
                             <div class="inputspan">
                                 <span class="label label-info">Người đại diện thuê</span>
-                                <input type="text" name="inputHoTen" id="inputHoTen" readonly>
+                                <input type="text" name="inputHoTen" id="inputHoTen" readonly required>
                             </div>
     
                             <div class="inputspan">
                                 <span class="label label-info">Giá phòng</span>
-                                <input type="text" name="inputGiaPhong" id="inputGiaPhong" readonly>
+                                <input type="text" name="inputGiaPhong" id="inputGiaPhong" readonly required>
                             </div>
     
                             <div class="inputspan">
                                 <span class="label label-info">Chỉ số điện</span>                              
-                                <input type="text" name="inputCSD" id="inputCSD">
+                                <input type="text" name="inputCSD" id="inputCSD" onkeyup="check();" required> 
                                 </div>
                             
                             <div class="inputspan">
                                 <span class="label label-info">Chỉ số nước</span>
-                                <input type="text" name="inputCSN" id="inputCSN">
+                                <input type="text" name="inputCSN" id="inputCSN" required>
                             </div>
                             <div class="inputspan">
                                 <span class="label label-info">Chi phí khác</span>
@@ -109,7 +109,7 @@ echo
                             <br>                  
                             <div class="buttonConfirm">
                                 <button type="button" class="btn btn-outline-secondary">Nhập lại</button>
-                                <button type="submit" class="btn btn-outline-primary">Cập nhật</button>
+                                <button type="submit" class="btn btn-outline-primary" id="submit_btn">Cập nhật</button>
                             </div><br><br>
                       
                         </form>
@@ -153,6 +153,20 @@ echo                '</table>
             </div>
         </div>
         <script language="javascript">
+        const regex_number = new RegExp(/^[0-9]{0,12}$/);
+        var validation = false;
+        
+        function check(){
+            var ipCSD = document.getElementById("inputCSD").value;
+            if(regex_number.test(ipCSD)){
+                document.getElementById("submit_btn").disabled = false;
+            }
+            else {
+                document.getElementById("submit_btn").disabled = true;
+            }
+        }
+
+
         function hienThiTen(){
             let tenPhong = document.getElementById("inputTenPhong");
             let result = tenPhong.options[tenPhong.selectedIndex].value;
