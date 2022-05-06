@@ -1,7 +1,8 @@
 <?php 
+session_start();
 include '../php/connection.php';
 //Cau truy van
-$sql = "SELECT * FROM phong";
+$sql = "SELECT hd.mahd, hd.tenphong, ql.CCCD, ql.HoTen, p.giaphong, hd.csdien, hd.csnuoc, hd.chiphikhac, hd.thanhtien FROM hoadon hd, (SELECT * FROM qlchothue WHERE NgayTraPhong IS NULL) ql, phong p where (hd.tenphong=ql.TenPhong) AND (hd.tenphong=p.tenphong) AND ql.cccd = '".$_SESSION['username']."';";
 //Thuc hien truy van
 $result = mysqli_query($conn,$sql);
 
