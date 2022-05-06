@@ -39,7 +39,7 @@ else {
         header( "refresh: 0.1;url=../admin/dangkiphong.php" );
     }
 
-    $sql = "INSERT INTO taikhoan VALUES ('".$cccd."', 1,".$tenphong.")";
+    $sql = "INSERT INTO taikhoan VALUES ('".$cccd."', 1,".$tenphong.",'')";
     $query = mysqli_query($conn, $sql);
     if($query === true){
         echo "<script language='javascript'>alert('Thêm thành công! Tài khoản là số CCCD, mật khẩu mặc định là '1'');</script>";

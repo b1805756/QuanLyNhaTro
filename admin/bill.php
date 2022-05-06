@@ -81,26 +81,26 @@ echo
     
                             <div class="inputspan">
                                 <span class="label label-info">CCCD</span>
-                                <input type="text" name="inputCCCD" id="inputCCCD" readonly>
+                                <input type="text" name="inputCCCD" id="inputCCCD" readonly required>
                             </div>
                             <div class="inputspan">
                                 <span class="label label-info">Người đại diện thuê</span>
-                                <input type="text" name="inputHoTen" id="inputHoTen" readonly>
+                                <input type="text" name="inputHoTen" id="inputHoTen" readonly required>
                             </div>
     
                             <div class="inputspan">
                                 <span class="label label-info">Giá phòng</span>
-                                <input type="text" name="inputGiaPhong" id="inputGiaPhong" readonly>
+                                <input type="text" name="inputGiaPhong" id="inputGiaPhong" readonly required>
                             </div>
     
                             <div class="inputspan">
                                 <span class="label label-info">Chỉ số điện</span>                              
-                                <input type="text" name="inputCSD" id="inputCSD">
+                                <input type="text" name="inputCSD" id="inputCSD" onkeyup="check();" required> 
                                 </div>
                             
                             <div class="inputspan">
                                 <span class="label label-info">Chỉ số nước</span>
-                                <input type="text" name="inputCSN" id="inputCSN">
+                                <input type="text" name="inputCSN" id="inputCSN" required>
                             </div>
                             <div class="inputspan">
                                 <span class="label label-info">Chi phí khác</span>
@@ -109,7 +109,7 @@ echo
                             <br>                  
                             <div class="buttonConfirm">
                                 <button type="button" class="btn btn-outline-secondary">Nhập lại</button>
-                                <button type="submit" class="btn btn-outline-primary">Cập nhật</button>
+                                <button type="submit" class="btn btn-outline-primary" id="submit_btn">Cập nhật</button>
                             </div><br><br>
                       
                         </form>
@@ -124,10 +124,11 @@ echo
                             <th scope="col">Giá phòng</th>
                             <th scope="col">Chỉ số điện</th>
                             <th scope="col">Chỉ số nước</th>
+                            <th scope="col">Chi phí khác</th>
                             <th scope="col">Thành tiền</th>
                         </tr>
                         </thead>';
-                        $sql = "SELECT hd.mahd, hd.tenphong, ql.CCCD, ql.HoTen, p.giaphong, hd.csdien, hd.csnuoc, hd.thanhtien FROM hoadon hd, (SELECT * FROM qlchothue WHERE NgayTraPhong IS NULL) ql, phong p where (hd.tenphong=ql.TenPhong) AND (hd.tenphong=p.tenphong);";
+                        $sql = "SELECT hd.mahd, hd.tenphong, ql.CCCD, ql.HoTen, p.giaphong, hd.csdien, hd.csnuoc, hd.chiphikhac, hd.thanhtien FROM hoadon hd, (SELECT * FROM qlchothue WHERE NgayTraPhong IS NULL) ql, phong p where (hd.tenphong=ql.TenPhong) AND (hd.tenphong=p.tenphong);";
                         $result = mysqli_query($conn,$sql);
                         if($result) { //Kiem tra ket qua tra ve khac rong
                             while($row=mysqli_fetch_row($result)){
@@ -141,6 +142,7 @@ echo
                                     <td>'.$row[5].'</td>
                                     <td>'.$row[6].'</td>
                                     <td>'.$row[7].'</td>
+                                    <td>'.$row[8].'</td>
                                 </tbody>';
                             }
                         }
@@ -151,6 +153,20 @@ echo                '</table>
             </div>
         </div>
         <script language="javascript">
+        const regex_number = new RegExp(/^[0-9]{0,12}$/);
+        var validation = false;
+        
+        function check(){
+            var ipCSD = document.getElementById("inputCSD").value;
+            if(regex_number.test(ipCSD)){
+                document.getElementById("submit_btn").disabled = false;
+            }
+            else {
+                document.getElementById("submit_btn").disabled = true;
+            }
+        }
+
+
         function hienThiTen(){
             let tenPhong = document.getElementById("inputTenPhong");
             let result = tenPhong.options[tenPhong.selectedIndex].value;

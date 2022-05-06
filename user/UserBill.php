@@ -1,7 +1,8 @@
 <?php 
+session_start();
 include '../php/connection.php';
 //Cau truy van
-$sql = "SELECT * FROM phong";
+$sql = "SELECT hd.mahd, hd.tenphong, ql.CCCD, ql.HoTen, p.giaphong, hd.csdien, hd.csnuoc, hd.chiphikhac, hd.thanhtien FROM hoadon hd, (SELECT * FROM qlchothue WHERE NgayTraPhong IS NULL) ql, phong p where (hd.tenphong=ql.TenPhong) AND (hd.tenphong=p.tenphong) AND ql.cccd = '".$_SESSION['username']."';";
 //Thuc hien truy van
 $result = mysqli_query($conn,$sql);
 
@@ -41,12 +42,15 @@ echo '
                 <table class="table table-hover">
                 <thead>
                   <tr>
-                    <th scope="col">Số phòng</th>                            
+                    <th scope="col">Mã HD</th>
+                    <th scope="col">Số phòng</th>
+                    <th scope="col">CCCD</th>
                     <th scope="col">Người đại diện thuê</th>
                     <th scope="col">Giá phòng</th>
                     <th scope="col">Chỉ số điện</th>
                     <th scope="col">Chỉ số nước</th>
                     <th scope="col">Chi phí khác</th>
+                    <th scope="col">Thành tiền</th>
                   </tr>
                 </thead>
                       <tbody>
@@ -63,7 +67,12 @@ echo '
                           echo "<td>" . $row[0] . "</td>";
                           echo "<td>" . $row[1] . "</td>";
                           echo "<td>" . $row[2] . "</td>";
-                          echo "<td>" . $row[3] . "</td>";                                                
+                          echo "<td>" . $row[3] . "</td>";
+                          echo "<td>" . $row[4] . "</td>";
+                          echo "<td>" . $row[5] . "</td>";
+                          echo "<td>" . $row[6] . "</td>";
+                          echo "<td>" . $row[7] . "</td>";
+                          echo "<td>" . $row[8] . "</td>";                                   
                           echo "</tr>";
                         }
                       }
@@ -75,6 +84,7 @@ echo '
             </div>
             <script>
             includeHTML();
+            
             </script>
 </body>
 
