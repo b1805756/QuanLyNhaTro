@@ -15,12 +15,12 @@ if($row=mysqli_fetch_row($result)){
     }
     else {
         echo "<script language='javascript'>alert('Đăng nhập thành công!');</script>";
-        header( "refresh: 0.1; url=../user/MainUser.html" );
+        header( "refresh: 0.1; url=../user/" );
     }
 }
 else {
     echo "<script language='javascript'>alert('Sai tên đăng nhập hoặc mật khẩu!');</script>";
-    header( "refresh: 0.1; url=../index.html" );
+    header( "refresh: 0.1; url=../" );
 }
 
 ?>

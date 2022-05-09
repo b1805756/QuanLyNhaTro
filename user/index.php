@@ -1,3 +1,6 @@
+<?php
+include '../php/check_ss_user.php';
+?>
 <html>
 <meta charset="utf-8" />
 <script language="javascript" src="../js/Include.js"></script>
