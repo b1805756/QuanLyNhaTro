@@ -1,3 +1,13 @@
+<?php
+session_start();
+if(isset($_SESSION['username'])){
+    if($_SESSION['username']=='admin'){
+        header( "refresh: 0.1; url=./admin/" );
+    } else {
+        header( "refresh: 0.1; url=./user/MainUser.html" );
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,11 +1,9 @@
+<?php
+include '../php/check_ss_admin.php';
+?>
 <html>
-
-
-
-
   <meta charset="utf-8">
   <script language="javascript" src="../js/Include.js"></script>
-
   <div w3-include-html="../include/IncludeHead.html"></div> 
 <body>
 
@@ -15,9 +13,6 @@
         <div class="menu">
           <div w3-include-html="../include/IncludeMenu.html"></div> 
         </div>
-
-
-
       </div>
       <div class="col">
         <div class="container">
