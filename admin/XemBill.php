@@ -1,11 +1,9 @@
 <?php 
 include '../php/connection.php';
 //Cau truy van
-<<<<<<< HEAD
+
 $sql = "SELECT hd.mahd, hd.tenphong, ql.CCCD, ql.HoTen, p.giaphong, hd.csdien, hd.csnuoc, hd.chiphikhac, hd.thanhtien FROM hoadon hd, (SELECT * FROM qlchothue WHERE NgayTraPhong IS NULL) ql, phong p where (hd.tenphong=ql.TenPhong) AND (hd.tenphong=p.tenphong);";
-=======
-$sql = "SELECT * FROM phong";
->>>>>>> parent of 1be84c7 (Merge branch 'main' of https://github.com/b1805756/QuanLyNhaTro)
+
 //Thuc hien truy van
 $result = mysqli_query($conn,$sql);
 
@@ -31,12 +29,7 @@ echo '
         <div class="menu">
           <div w3-include-html="../include/IncludeMenu.html"></div> 
         </div>
-
-
-
       </div>
-
-
             <div class="col">
               <div class="colDSP">
                 <div class="container">
@@ -53,10 +46,7 @@ echo '
                     <th scope="col">Chỉ số điện</th>
                     <th scope="col">Chỉ số nước</th>
                     <th scope="col">Chi phí khác</th>
-<<<<<<< HEAD
                     <th scope="col">Thành tiền</th>
-=======
->>>>>>> parent of 1be84c7 (Merge branch 'main' of https://github.com/b1805756/QuanLyNhaTro)
                   </tr>
                 </thead>
                       <tbody>
@@ -74,13 +64,11 @@ echo '
                           echo "<td>" . $row[1] . "</td>";
                           echo "<td>" . $row[2] . "</td>";
                           echo "<td>" . $row[3] . "</td>";
-<<<<<<< HEAD
                           echo "<td>" . $row[4] . "</td>";
                           echo "<td>" . $row[5] . "</td>";
                           echo "<td>" . $row[6] . "</td>";
                           echo "<td>" . $row[7] . "</td>";
                           echo "<td>" . $row[8] . "</td>";
-=======
                           echo '
                             <td> <form action="../php/xoaphong.php" class="form-hoadon" method="post">
                             <input type="submit" class="btn btn-outline-secondary" name="Xoa" value="Xóa">
@@ -89,7 +77,6 @@ echo '
                           </td>';
                           
                           echo "</tr>";
->>>>>>> parent of 1be84c7 (Merge branch 'main' of https://github.com/b1805756/QuanLyNhaTro)
                         }
                       }
                        echo '
