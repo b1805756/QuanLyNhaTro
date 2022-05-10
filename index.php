@@ -20,8 +20,8 @@ if(isset($_SESSION['username'])){
 <body>
     <div id="wrapper">
         <form method="post" action="./php/login.php" id="form-login">
-            <h1 class="form-heading">Nhà trọ TH&DH</h1>
-            <img src="./img/logo1.png" alt="" height="80%" width="80%">
+           
+            <img src="./img/logo1.png" alt="" style="margin-left: 12%; width: 80%; height: 80%" >
             <div class="form-group">
                 <i class="far fa-user"></i>
                 <input type="text" class="form-input" name="username" placeholder="Tên đăng nhập" required>
