@@ -21,7 +21,7 @@ if(isset($_SESSION['username'])){
     <div id="wrapper">
         <form method="post" action="./php/login.php" id="form-login">
            
-            <img src="./img/logo1.png" alt="" style="margin-left: 12%; width: 80%; height: 80%" >
+            <img src="./img/logo1.png" alt="" style="margin: 0 10%; width: 80%; height: 80%" >
             <div class="form-group">
                 <i class="far fa-user"></i>
                 <input type="text" class="form-input" name="username" placeholder="Tên đăng nhập" required>

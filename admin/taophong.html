@@ -54,22 +54,26 @@
                                 </div>
                             </div> -->
                             <div class="buttonConfirm"> 
-                                <button type="submit" class="btn btn-secondary">Nhập lại</button>                          
+                                <button type="button" class="btn btn-secondary" onclick="reset();">Nhập lại</button>                          
                                 <button type="submit" class="btn btn-primary">Cập nhật</button>                      
                             </div>
                         </form>
-                        
-
                     </div>
-
-
-
                 </div>
             </div>
         </div>
 
         <script>
             includeHTML();
+            function reset(){
+                document.getElementById('inputTenPhong').value.reset;
+                document.getElementById('inputMoTa').value.reset;
+                document.getElementById('inputGiaPhong').value.reset;
+                document.getElementById('inputGiaDien').value.reset;
+                document.getElementById('inputGiaNuoc').value.reset;
+            }
+
+
             function checkInput_number(){
                 var format = "/^\d{4,9}$/";
             }
