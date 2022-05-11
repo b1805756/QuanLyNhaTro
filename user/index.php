@@ -29,7 +29,7 @@ include '../php/check_ss_user.php';
                             <a href="../user/UserBill.php" class="btn btn-primary">
 
                                 <img class="card-img-top" style="width: 300px; height: 300px;"
-                                    src="../user/img/bill.jpg"
+                                    src="../user/img/bill.png"
                                     alt="" >
                                 <h5 class="card-title">Xem hóa đơn</h5>
                                 
@@ -45,7 +45,7 @@ include '../php/check_ss_user.php';
 
                             <a href="../user/danhsachphongUser.php" class="btn btn-primary">
                                 <img class="card-img-top" style="width: 300px; height: 300px;"
-                                    src="../user/img/danhsachphong.jpg"
+                                    src="../user/img/danhsachphong.png"
                                     alt="">
                                 <h5 class="card-title">Xem phòng trống</h5>
                             </a>

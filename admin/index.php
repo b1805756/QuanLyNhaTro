@@ -29,7 +29,7 @@ include '../php/check_ss_admin.php';
             <div class="col">
               <div class="bordermain">
                 <a href="../admin/quanlyhoadon.html">
-                  <img class="img-thumbnail" src="./img/bill.jpg" alt="">
+                  <img class="img-thumbnail" src="./img/bill.png" alt="">
                  
                 </a>
                 <h5> Quản lý hóa đơn</h5>
