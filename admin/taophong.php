@@ -22,7 +22,6 @@
                             <div class="inputspan">
                                 <span class="label label-info">Tên phòng</span>
                                 <input type="text" name="inputTenPhong" id="inputTenPhong" required>
-
                             </div>
 
                             <div class="inputspan">
@@ -32,30 +31,21 @@
 
                             <div class="inputspan">
                                 <span class="label label-info">Giá phòng</span>
-                                <input type="text" name="inputGiaPhong" id="inputGiaPhong" required>
+                                <input type="text" name="inputGiaPhong" id="inputGiaPhong" required onkeyup="checkInput_number();">
                             </div>
 
                             <div class="inputspan">
                                 <span class="label label-info">Giá điện</span>
-                                <input type="text" name="inputGiaDien" id="inputGiaDien" required>
+                                <input type="text" name="inputGiaDien" id="inputGiaDien" required onkeyup="checkInput_number();">
                             </div>
 
                             <div class="inputspan">
                                 <span class="label label-info">Giá nước</span>
-                                <input type="text" name="inputGiaNuoc" id="inputGiaNuoc" required>
+                                <input type="text" name="inputGiaNuoc" id="inputGiaNuoc" required onkeyup="checkInput_number();">
                             </div>
-                            <!-- <div class="inputspan">
-                                Trạng thái phòng:
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name>
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Trống
-                                    </label>
-                                </div>
-                            </div> -->
                             <div class="buttonConfirm"> 
                                 <button type="button" class="btn btn-secondary" onclick="reset();">Nhập lại</button>                          
-                                <button type="submit" class="btn btn-primary">Cập nhật</button>                      
+                                <button type="submit" class="btn btn-primary" id="btn_submit">Cập nhật</button>                      
                             </div>
                         </form>
                     </div>
@@ -75,7 +65,30 @@
 
 
             function checkInput_number(){
-                var format = "/^\d{4,9}$/";
+                var check = false;
+                var format = new RegExp("^[1-9]{1}[0-9]{3,9}$");
+                //Check gia phong
+                let str = document.getElementById('inputGiaPhong').value;
+                if(!format.test(str)){
+                    check = false;
+                } else {
+                    check = true;
+                }
+                //Check gia dien
+                str = document.getElementById('inputGiaDien').value;
+                if(!format.test(str)){
+                    check = false;
+                } else {
+                    check = true;
+                }
+                //Check gia nuoc
+                str = document.getElementById('inputGiaNuoc').value;
+                if(!format.test(str)){
+                    check = false;
+                } else {
+                    check = true;
+                }
+                document.getElementById('btn_submit').disabled = !check;
             }
         </script>
 </body>
