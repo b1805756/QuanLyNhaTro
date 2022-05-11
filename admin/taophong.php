@@ -7,10 +7,8 @@ $result = mysqli_query($conn, $sql);
 
 while($row = mysqli_fetch_row($result)){
     $tenphong[$i] = (int) $row[0];
-    echo $tenphong[$i]." ";
     $i++;
 }
-echo (int) in_array(20, $tenphong);
 ?>
 <html>
 <meta charset="utf-8">
@@ -31,13 +29,13 @@ echo (int) in_array(20, $tenphong);
                 <div class="colhoadon">
                     <div class="container">
                         <form action="../php/taophong.php" class="form-hoadon" method="post">
-                            <div class="inputspan">
+                            <!--<div class="inputspan">
                                 <span class="label label-info">Tên phòng</span>
                                 <input type="text" name="inputTenPhong" id="inputTenPhong" required>
-                            </div>
+                            </div>-->
                             <div class="inputspan">
                                 <span class="label label-info">Tên phòng</span>
-                                <select name="" id="">
+                                <select name="inputTenPhong" id="inputTenPhong">
                                     <?php
                                         $i = 1;
                                         $dem = 1;
