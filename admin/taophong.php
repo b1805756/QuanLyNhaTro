@@ -1,6 +1,10 @@
+<?php
+session_start();
+include '../php/connection.php';
+include '../php/check_ss_admin.php';
+$sql = "select max(tenphong) from phong";
+?>
 <html>
-
-
 <meta charset="utf-8">
 <script language="javascript" src="../js/Include.js"></script>
 <div w3-include-html="../include/IncludeHead.html"></div> 
