@@ -1,8 +1,16 @@
 <?php
-session_start();
 include '../php/connection.php';
 include '../php/check_ss_admin.php';
-$sql = "select max(tenphong) from phong";
+$i = 0;
+$sql = "select tenphong from phong";
+$result = mysqli_query($conn, $sql);
+
+while($row = mysqli_fetch_row($result)){
+    $tenphong[$i] = (int) $row[0];
+    echo $tenphong[$i]." ";
+    $i++;
+}
+echo (int) in_array(20, $tenphong);
 ?>
 <html>
 <meta charset="utf-8">
@@ -27,7 +35,24 @@ $sql = "select max(tenphong) from phong";
                                 <span class="label label-info">Tên phòng</span>
                                 <input type="text" name="inputTenPhong" id="inputTenPhong" required>
                             </div>
-
+                            <div class="inputspan">
+                                <span class="label label-info">Tên phòng</span>
+                                <select name="" id="">
+                                    <?php
+                                        $i = 1;
+                                        $dem = 1;
+                                        for($i=1; $i<=100 && $dem<=10; $i++){
+                                            if((int) in_array($i, $tenphong)==0){
+                                                echo "<option value=".$i.">".$i."</option>";
+                                                $dem++;
+                                            } else {
+                                                
+                                            }
+                                        }
+                                    ?>
+                                </select>
+                            </div>
+                            
                             <div class="inputspan">
                                 <span class="label label-info">Mô tả</span>
                                 <input type="text" name="inputMoTa" id="inputMoTa" >
