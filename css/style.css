@@ -60,6 +60,8 @@
     height: 100%;
     width: 100%;
     background-color:   #fff;
+    box-sizing: border-box;
+    margin: 0 auto;
 }
 .container {
     margin-left: 20%;
@@ -178,7 +180,7 @@ margin-top: 20%;
 
 }
 .img-thumbnail{
-    width: 400px;
+    width: 70% auto;
     height: 400px;
 }
 @media screen and  (max-width: 920px) {
