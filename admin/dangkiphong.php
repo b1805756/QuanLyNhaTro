@@ -59,7 +59,7 @@
 
                             <div class="inputspan">
                                 <span class="label label-info">Số điện thoại</span>
-                                <input type="number" name="inputSDT" id="">
+                                <input type="text" name="inputSDT" id="">
                             </div>
 
                             <div class="inputspan">
