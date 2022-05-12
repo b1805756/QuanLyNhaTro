@@ -63,7 +63,7 @@ echo '
                         <form action="../php/themhoadon.php" class="form-hoadon" style="margin-left: inherit;" method="GET">
                             <div class="inputspan">                              
                                 <lable>Phòng</lable>
-                                <select style="width:300px" name="inputTP" id="inputTenPhong" onchange="hienThiTen();">
+                                <select name="inputTP" id="inputTenPhong" onmouseenter="hienThiTen();" onchange="hienThiTen();">
                                 ';
                                 $sql = "SELECT tenphong from phong where trangthai=1";
                                 $result = mysqli_query($conn, $sql);
@@ -100,15 +100,15 @@ echo
                             
                             <div class="inputspan">
                                 <span class="label label-info">Chỉ số nước</span>
-                                <input type="text" name="inputCSN" id="inputCSN" required>
+                                <input type="text" name="inputCSN" id="inputCSN" onkeyup="check();" required>
                             </div>
                             <div class="inputspan">
                                 <span class="label label-info">Chi phí khác</span>
-                                <input type="text" name="inputPhiKhac" id="inputPhiKhac">
+                                <input type="text" name="inputPhiKhac" id="inputPhiKhac" onkeyup="check();">
                             </div>
                             <br>                  
                             <div class="buttonConfirm">
-                                <button type="button" class="btn btn-outline-secondary">Nhập lại</button>
+                                <button type="button" class="btn btn-outline-secondary" id="reset_btn" onclick="reset();">Nhập lại</button>
                                 <button type="submit" class="btn btn-outline-primary" id="submit_btn">Cập nhật</button>
                             </div><br><br>
                       
@@ -153,12 +153,22 @@ echo                '</table>
             </div>
         </div>
         <script language="javascript">
-        const regex_number = new RegExp(/^[0-9]{0,12}$/);
+        const regex_number = new RegExp(/^[0-9]{1,12}$/);
         var validation = false;
-        
+        function reset(){
+            document.getElementById("inputCCCD").value = "";
+            document.getElementById("inputHoTen").value = "";
+            document.getElementById("inputGiaPhong").value = "";
+            document.getElementById("inputCSD").value = "";
+            document.getElementById("inputCSN").value = "";
+            document.getElementById("inputPhiKhac").value = "";
+
+        }
         function check(){
             var ipCSD = document.getElementById("inputCSD").value;
-            if(regex_number.test(ipCSD)){
+            var ipCSN = document.getElementById("inputCSN").value;
+            var ipPhiKhac = document.getElementById("inputPhiKhac").value;
+            if(regex_number.test(ipCSD)&&regex_number.test(ipCSN)&&regex_number.test(ipPhiKhac)){
                 document.getElementById("submit_btn").disabled = false;
             }
             else {
