@@ -2,7 +2,7 @@
 include '../php/connection.php';
 //Cau truy van
 
-$sql = "SELECT hd.mahd, hd.tenphong, ql.CCCD, ql.HoTen, p.giaphong, hd.csdien, hd.csnuoc, hd.chiphikhac, hd.thanhtien FROM hoadon hd, (SELECT * FROM qlchothue WHERE NgayTraPhong IS NULL) ql, phong p where (hd.tenphong=ql.TenPhong) AND (hd.tenphong=p.tenphong);";
+$sql = "SELECT hd.mahd, hd.tenphong, ql.CCCD, ql.HoTen, p.giaphong, hd.csdien, hd.csnuoc, hd.chiphikhac, hd.thanhtien FROM hoadon hd, (SELECT * FROM qlchothue /*WHERE NgayTraPhong IS NULL*/) ql, phong p where (hd.tenphong=ql.TenPhong) AND (hd.tenphong=p.tenphong);";
 
 //Thuc hien truy van
 $result = mysqli_query($conn,$sql);
@@ -38,9 +38,9 @@ echo '
                 <table class="table table-hover">
                 <thead>
                   <tr>
+                    <th scope="col">Số HD</th>
                     <th scope="col">Số phòng</th>
                     <th scope="col">CCCD</th>
-                    <th scope="col">Mô tả</th>
                     <th scope="col">Người đại diện thuê</th>
                     <th scope="col">Giá phòng</th>
                     <th scope="col">Chỉ số điện</th>
@@ -72,7 +72,7 @@ echo '
                           echo '
                             <td> <form action="../php/xoaphong.php" class="form-hoadon" method="post">
                             <input type="submit" class="btn btn-outline-secondary" name="Xoa" value="Xóa">
-                            <input type="text" class="btn btn-outline-secondary" name="tenphong" value="'.$row[0].'" style="display: none;">
+                            <input type="text" class="btn btn-outline-secondary" name="mahd" value="'.$row[0].'" style="display: none;">
                             </form>
                           </td>';
                           
