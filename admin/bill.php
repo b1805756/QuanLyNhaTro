@@ -29,7 +29,7 @@ echo '
             }
         }
 
-        $sql = "SELECT ql.hoten, p.tenphong, ql.cccd FROM phong p, qlchothue ql WHERE p.tenphong IN (SELECT tenphong FROM qlchothue) AND p.tenphong = ql.tenphong";
+        $sql = "SELECT ql.hoten, p.tenphong, ql.cccd FROM phong p, (SELECT * FROM qlchothue WHERE NgayTraPhong IS NULL) ql WHERE p.tenphong = ql.tenphong";
         $result = mysqli_query($conn, $sql);
         if($result){
             while($row=mysqli_fetch_row($result)){
