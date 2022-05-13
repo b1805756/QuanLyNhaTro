@@ -59,16 +59,19 @@ while($row = mysqli_fetch_row($result)){
                             <div class="inputspan">
                                 <span class="label label-info">Giá phòng</span>
                                 <input type="text" name="inputGiaPhong" id="inputGiaPhong" required onkeyup="checkInput_number();">
+                                <br><p id="message_err" style="display: none; color: red;">Sai định dạng</p>
                             </div>
 
                             <div class="inputspan">
                                 <span class="label label-info">Giá điện</span>
                                 <input type="text" name="inputGiaDien" id="inputGiaDien" required onkeyup="checkInput_number();">
+                                <br><p id="message_err1" style="display: none; color: red;">Sai định dạng</p>
                             </div>
 
                             <div class="inputspan">
                                 <span class="label label-info">Giá nước</span>
                                 <input type="text" name="inputGiaNuoc" id="inputGiaNuoc" required onkeyup="checkInput_number();">
+                                <br><p id="message_err2" style="display: none; color: red;">Sai định dạng</p>
                             </div>
                             <div class="buttonConfirm"> 
                                 <button type="button" class="btn btn-secondary" onclick="reset();">Nhập lại</button>                          
@@ -90,7 +93,18 @@ while($row = mysqli_fetch_row($result)){
                 document.getElementById('inputGiaNuoc').value.reset;
             }
 
+            function error1(){
+                var check = false;
+                let str = document.getElementById('inputGiaPhong').value;
+                if(!format.test(str)){
+                    alert(document.getElementById('message_err').style.display);
+                    document.getElementById('message_err').style.display = 'block';
+                } else {
+                    document.getElementById('message_err').style.display ='none';
+                    
+                }
 
+            }
             function checkInput_number(){
                 var check = false;
                 var format = new RegExp("^[1-9]{1}[0-9]{3,9}$");
@@ -98,22 +112,28 @@ while($row = mysqli_fetch_row($result)){
                 let str = document.getElementById('inputGiaPhong').value;
                 if(!format.test(str)){
                     check = false;
+                    document.getElementById('message_err').style.display = 'block';
                 } else {
                     check = true;
+                    document.getElementById('message_err').style.display ='none';
                 }
                 //Check gia dien
                 str = document.getElementById('inputGiaDien').value;
                 if(!format.test(str)){
                     check = false;
+                    document.getElementById('message_err1').style.display = 'block';
                 } else {
                     check = true;
+                    document.getElementById('message_err1').style.display = 'none';
                 }
                 //Check gia nuoc
                 str = document.getElementById('inputGiaNuoc').value;
                 if(!format.test(str)){
                     check = false;
+                    document.getElementById('message_err2').style.display = 'block';
                 } else {
                     check = true;
+                    document.getElementById('message_err2').style.display = 'none';
                 }
                 document.getElementById('btn_submit').disabled = !check;
             }
